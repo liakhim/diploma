@@ -1,0 +1,14 @@
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+    .sidebar-wrapper {
+        min-height: 100vh;
+        max-width: 280px;
+        .sidebar {
+            height: 100%;
+        }
+    }
+    .content {
+        width: calc(100% - 280px);
+    }
+}

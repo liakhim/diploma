@@ -8,13 +8,10 @@
 {{--                <div class="card-header">{{ __('Login') }}</div>--}}
 
                 <div class="card-body">
-                    <div class="image-box" style="margin: auto">
-                        <img src="../assets/images/login-image.png" alt="">
-                    </div>
-                    <form class="mt-3" method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="mb-3">
 {{--                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>--}}
 
                             <div class="col-md-12">
@@ -29,7 +26,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="mb-3">
 {{--                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Пароль') }}</label>--}}
 
                             <div class="col-md-12">
@@ -56,14 +53,14 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
 
-                        <div class="row mb-0">
+                        <div class="mb-0">
                             <div class="col-md-12 d-flex justify-content-end">
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Забыли пароль?') }}
                                     </a>
                                 @endif
-                                <button type="submit" class="btn btn-success custom-btn login-btn">
+                                <button type="submit" class="btn btn-success custom-btn login-register-btn">
                                     {{ __('Войти') }}
                                 </button>
                             </div>

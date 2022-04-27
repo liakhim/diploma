@@ -11290,6 +11290,10 @@ textarea.form-control-lg {
   border-radius: 50px !important;
 }
 
+.login-register-btn {
+  min-width: 150px;
+}
+
 .login {
   width: 100%;
   min-height: calc(100vh - 120px);
@@ -11303,19 +11307,67 @@ textarea.form-control-lg {
 .login .card {
   border: none;
 }
-.login .card .card-body .image-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-.login .card .card-body .image-box img {
-  max-width: 300px;
-}
 .login .card .card-body form {
-  max-width: 460px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 30px 40px;
+  max-width: 520px;
   margin: auto;
 }
-.login .login-btn {
-  min-width: 150px;
+
+.register {
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.register .row {
+  width: 100%;
+}
+.register .card {
+  border: none;
+}
+.register .card .card-body form {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 30px 40px;
+  max-width: 520px;
+  margin: auto;
+}
+
+.send-password-reset-link {
+  width: 100%;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.send-password-reset-link .row {
+  width: 100%;
+}
+.send-password-reset-link .card {
+  border: none;
+}
+.send-password-reset-link .card .card-body form {
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 30px 40px;
+  max-width: 520px;
+  margin: auto;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+}
+.dashboard .sidebar-wrapper {
+  min-height: 100vh;
+  max-width: 280px;
+}
+.dashboard .sidebar-wrapper .sidebar {
+  height: 100%;
+}
+.dashboard .content {
+  width: calc(100% - 280px);
 }
