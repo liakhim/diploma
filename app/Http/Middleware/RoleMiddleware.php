@@ -19,7 +19,7 @@ class RoleMiddleware
             return redirect()->route('login');
         }
         if(!auth()->user()->hasRole($role)) {
-            abort(404);
+            abort(403);
         }
         if($permission !== null && !auth()->user()->can($permission)) {
             abort(404);

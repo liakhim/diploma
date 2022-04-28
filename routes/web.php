@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,20 +24,20 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/404', function () {
     return abort(404);
 });
-Route::group(['middleware' => 'role:web-developer'], function() {
-    Route::get('/admin', function() {
+Route::group(['middleware' => 'role:web-developer', 'prefix' => 'admin'], function() {
+    Route::get('/', function() {
         return view('admin.index');
     });
-    Route::get('/admin/users', function() {
-        return view('admin.users');
+    Route::get('/users', function() {
+        return view('admin.users', ['users' => User::all()]);
     });
-    Route::get('/admin/articles', function() {
+    Route::get('/articles', function() {
         return view('admin.articles');
     });
-    Route::get('/admin/places', function() {
-        return view('admin.places');
+    Route::get('/places', function() {
+        return view('admin.places', ['users' => 'name test']);
     });
-    Route::get('/admin/filters', function() {
+    Route::get('/filters', function() {
         return view('admin.filters');
     });
 });

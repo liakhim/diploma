@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang=ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,9 +29,8 @@
         <div class="dashboard">
             <div class="sidebar-wrapper">
                 <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
-                    <a href="/admin" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <img src="/assets/images/white-logo.svg" alt="">
-                        <span class="fs-6">Панель управления</span>
+                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <img src="/assets/images/logo.svg" alt="">
                     </a>
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
