@@ -25,14 +25,24 @@ Route::get('/404', function () {
     return abort(404);
 });
 Route::group(['middleware' => 'role:web-developer', 'prefix' => 'admin'], function() {
-    Route::get('/', function() {
+    Route::get('/dashboard', function() {
         return view('admin.index');
     });
     Route::get('/users', function() {
         return view('admin.users', ['users' => User::all()]);
     });
-    Route::get('/articles', function() {
-        return view('admin.articles');
+    Route::group(['prefix' => 'articles'], function() {
+        Route::get('/', function() {
+            $user_id = auth()->user()->getAuthIdentifier();
+            $user = User::find($user_id);
+            foreach ($user->articles as &$article) {
+                $article['author'] = User::find($article->user_id)->name;
+            }
+            return view('admin.articles', ['articles' => $user->articles]);
+        });
+        Route::get('/create', function() {
+            return view('admin.articles.create');
+        });
     });
     Route::get('/places', function() {
         return view('admin.places', ['users' => 'name test']);

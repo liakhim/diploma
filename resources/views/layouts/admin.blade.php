@@ -17,6 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -30,32 +32,58 @@
             <div class="sidebar-wrapper">
                 <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
                     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <img src="/assets/images/logo.svg" alt="">
+                        <img src="/assets/images/logo-white.svg" alt="">
                     </a>
                     <hr>
+                    <?php $route = explode("/", strval(url()->current()))[4]; ?>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="/admin" class="nav-link active" aria-current="page">
+                            <a href="/admin/dashboard"
+                               @class([
+                                'nav-link',
+                                'active' => ($route === 'dashboard'),
+                                'text-white' => $route !== 'dashboard'
+                               ])>
                                 Статистика
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/users" class="nav-link text-white">
+                            <a href="/admin/users"
+                               @class([
+                                'nav-link',
+                                'active' => ($route === 'users'),
+                                'text-white' => $route !== 'users'
+                               ])>
                                 Пользователи
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/articles" class="nav-link text-white" aria-current="page">
+                            <a href="/admin/articles"
+                               @class([
+                                'nav-link',
+                                'active' => ($route === 'articles'),
+                                'text-white' => $route !== 'articles'
+                               ])>
                                 Статьи
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/places" class="nav-link text-white">
+                            <a href="/admin/places"
+                               @class([
+                                'nav-link',
+                                'active' => ($route === 'places'),
+                                'text-white' => $route !== 'places'
+                               ])>
                                 Места
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/filters" class="nav-link text-white">
+                            <a href="/admin/filters"
+                               @class([
+                                'nav-link',
+                                'active' => ($route === 'filters'),
+                                'text-white' => $route !== 'filters'
+                               ])>
                                 Фильтры
                             </a>
                         </li>
@@ -90,6 +118,9 @@
                 </div>
             </div>
             <div class="content">
+                <div>
+                    @yield('back_button')
+                </div>
                 @yield('content')
             </div>
         </div>

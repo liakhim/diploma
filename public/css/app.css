@@ -11371,3 +11371,22 @@ textarea.form-control-lg {
 .dashboard .content {
   width: calc(100% - 280px);
 }
+
+.carousel {
+  height: 500px;
+}
+.carousel .carousel-inner {
+  height: 100%;
+}
+.carousel .carousel-inner .carousel-item {
+  height: 100%;
+}
+.carousel .carousel-inner .carousel-item .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.carousel .carousel-inner .carousel-item .image img {
+  width: 100%;
+}
