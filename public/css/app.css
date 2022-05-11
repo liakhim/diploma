@@ -11390,3 +11390,27 @@ textarea.form-control-lg {
 .carousel .carousel-inner .carousel-item .image img {
   width: 100%;
 }
+
+.article-card {
+  padding: 0;
+  border: none !important;
+}
+.article-card .card-body {
+  padding: 0;
+}
+.article-card-image {
+  max-width: 400px;
+}
+.article-card-image img {
+  width: 100%;
+}
+.article-card-text {
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.article-card-text .custom-btn {
+  margin-top: auto;
+}

@@ -44,38 +44,30 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-<div class="container">
-    <div class="row row-cols-3">
-        <div class="col d-flex flex-column align-items-center">
-            <div class="card" style="width: 24rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card with stretched link</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary stretched-link">Go somewhere</a>
+    <div class="container pt-3">
+        <div class="card article-card">
+            <div class="card-body article-card d-flex">
+                <div class="article-card-image">
+                    <img src="../assets/images/banners/1.jpeg" alt="">
+                </div>
+                <div class="article-card-text">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a class="btn btn-success custom-btn" href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
-        <div class="col d-flex flex-column align-items-center">
-            <div class="card" style="width: 24rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card with stretched link</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary stretched-link">Go somewhere</a>
+        <div class="card article-card">
+            <div class="card-body article-card d-flex">
+                <div class="article-card-image">
+                    <img src="../assets/images/banners/1.jpeg" alt="">
                 </div>
-            </div>
-        </div>
-        <div class="col d-flex flex-column align-items-center">
-            <div class="card" style="width: 24rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card with stretched link</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary stretched-link">Go somewhere</a>
+                <div class="article-card-text">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a class="btn btn-success custom-btn" href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
