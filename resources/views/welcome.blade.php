@@ -44,28 +44,43 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="container pt-3">
+    <div class="container news pt-3">
+        <div class="news-title">
+            <h3>Последние новости</h3>
+        </div>
         <div class="card article-card">
             <div class="card-body article-card d-flex">
                 <div class="article-card-image">
-                    <img src="../assets/images/banners/1.jpeg" alt="">
+                    <img src="../assets/images/articles/2.jpeg" alt="">
                 </div>
                 <div class="article-card-text">
                     <h5 class="card-title">Special title treatment</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="btn btn-success custom-btn" href="#" class="btn btn-primary">Go somewhere</a>
+                    <a class="btn btn-success custom-btn" href="#">Read more</a>
                 </div>
             </div>
         </div>
         <div class="card article-card">
             <div class="card-body article-card d-flex">
                 <div class="article-card-image">
-                    <img src="../assets/images/banners/1.jpeg" alt="">
+                    <img src="../assets/images/articles/3.jpeg" alt="">
                 </div>
                 <div class="article-card-text">
                     <h5 class="card-title">Special title treatment</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="btn btn-success custom-btn" href="#" class="btn btn-primary">Go somewhere</a>
+                    <a class="btn btn-success custom-btn" href="#">Read more</a>
+                </div>
+            </div>
+        </div>
+        <div class="card article-card">
+            <div class="card-body article-card d-flex">
+                <div class="article-card-image">
+                    <img src="../assets/images/articles/2.jpeg" alt="">
+                </div>
+                <div class="article-card-text">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a class="btn btn-success custom-btn" href="#">Read more</a>
                 </div>
             </div>
         </div>

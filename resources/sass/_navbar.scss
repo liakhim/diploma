@@ -1,0 +1,25 @@
+.navbar-search {
+    margin: 0 10px 0 0;
+}
+.navbar-menu {
+    display: flex;
+    list-style-type: none!important;
+    padding: 0;
+    margin: 0;
+    .navbar-menu-item {
+        a {
+            text-decoration: none;
+            color: #324552;
+            font-size: 14px;
+            padding: 0 5px;
+        }
+        &:hover {
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+    .navbar-menu-item:not(:last-child) {
+        margin-right: 10px;
+    }
+}

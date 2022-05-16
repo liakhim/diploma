@@ -6,13 +6,17 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+@import 'normalize';
 
 // Custom buttons
-
+@import '_news';
 @import '_buttons';
+@import '_place-card';
 @import '_login';
 @import '_register';
 @import '_reset-password';
 @import '_sidebar';
 @import '_carousel';
 @import '_article';
+@import '_navbar';
+@import '_footer';

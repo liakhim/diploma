@@ -1,0 +1,44 @@
+.places-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    .place-card {
+        width: 300px;
+        overflow: hidden;
+        border-radius: 5px;
+        cursor: pointer;
+        border: 1px solid #CACACA;
+        margin: 5px;
+        text-decoration: none;
+        h4 {
+            color: #111;
+        }
+        p {
+            color: #324552;
+        }
+        &:hover {
+            box-shadow: 0 0 10px #00000060;
+        }
+        &-image {
+            width: 100%;
+            height: 160px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+                width: 100%;
+            }
+        }
+        &-title {
+            padding: 20px 10px;
+            h4 {
+                margin-top: 0;
+            }
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+}

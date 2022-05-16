@@ -34,11 +34,18 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                <div class="navbar-search">
+                    <input type="text" placeholder="Search...">
+                </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
+                    <ul class="navbar-menu me-auto">
+                        <li class="navbar-menu-item"><a href="/">Главная</a></li>
+                        <li class="navbar-menu-item"><a href="/places">Еда</a></li>
+                        <li class="navbar-menu-item"><a href="#">Город</a></li>
+                        <li class="navbar-menu-item"><a href="#">Активный отдых</a></li>
+                        <li class="navbar-menu-item"><a href="#">Культурный отдых</a></li>
+                        <li class="navbar-menu-item"><a href="#">Фильтр-помощник</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -64,7 +71,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     @if (Auth::user()->hasRole('web-developer'))
-                                        <a class="dropdown-item" href="/admin">Панель администратора</a>
+                                        <a class="dropdown-item" href="/admin/dashboard">Панель администратора</a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -86,6 +93,13 @@
         <main>
             @yield('content')
         </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="logo">
+                    <img src="../assets/images/logo-white.svg" alt="">
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
