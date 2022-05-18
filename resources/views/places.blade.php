@@ -67,7 +67,7 @@
     </div>
     <div class="container">
         <div class="places-wrapper pt-4 pb-4">
-            <a href="#" class="place-card">
+            <a href="places/9" class="place-card">
                 <div class="place-card-image">
                     <img src="../../assets/images/banners/2.jpeg" alt="">
                 </div>
@@ -76,7 +76,7 @@
                     <p>Place description Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
                 </div>
             </a>
-            <a href="#" class="place-card">
+            <a href="places/10" class="place-card">
                 <div class="place-card-image">
                     <img src="../../assets/images/banners/2.jpeg" alt="">
                 </div>
@@ -85,7 +85,7 @@
                     <p>Place description Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
                 </div>
             </a>
-            <a href="#" class="place-card">
+            <a href="places/11" class="place-card">
                 <div class="place-card-image">
                     <img src="../../assets/images/banners/2.jpeg" alt="">
                 </div>
@@ -94,7 +94,7 @@
                     <p>Place description Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
                 </div>
             </a>
-            <a href="#" class="place-card">
+            <a href="places/12" class="place-card">
                 <div class="place-card-image">
                     <img src="../../assets/images/banners/2.jpeg" alt="">
                 </div>
