@@ -41,10 +41,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-menu me-auto">
                         <li class="navbar-menu-item"><a href="/">Главная</a></li>
-                        <li class="navbar-menu-item"><a href="/places">Еда</a></li>
-                        <li class="navbar-menu-item"><a href="#">Город</a></li>
-                        <li class="navbar-menu-item"><a href="#">Активный отдых</a></li>
-                        <li class="navbar-menu-item"><a href="#">Культурный отдых</a></li>
+                        <li class="navbar-menu-item"><a href="/places?category=food">Еда</a></li>
+                        <li class="navbar-menu-item"><a href="/places?category=city">Город</a></li>
+                        <li class="navbar-menu-item"><a href="/places?category=active">Активный отдых</a></li>
+                        <li class="navbar-menu-item"><a href="/places?category=culture">Культурный отдых</a></li>
                         <li class="navbar-menu-item"><a href="#">Фильтр-помощник</a></li>
                     </ul>
 
