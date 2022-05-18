@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/places', function () {
     return view('places');
 });
+Route::get('/places/{id}', function () {
+    return view('place');
+});
 
 Auth::routes();
 

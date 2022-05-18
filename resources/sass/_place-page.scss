@@ -1,0 +1,29 @@
+.place-page {
+    &-title {}
+    &-content {
+        display: flex;
+        align-items: flex-start;
+        .image {
+            max-width: 500px;
+            border: 1px solid red;
+            .carousel {
+                &-inner {
+                    .carousel-item {
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+        .info {
+            width: calc(100% - 520px);
+            margin: 0 0 0 20px;
+            border: 1px solid green;
+            &-title {}
+            &-list {}
+            &-rating {}
+        }
+    }
+    &-comments {}
+}
