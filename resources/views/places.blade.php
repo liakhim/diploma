@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="filters-wrapper">
+        <div class="filters-wrapper mt-4">
             <div class="dropdown-block">
                 <div class="dropdown-title">
                     <h6>Бюджет</h6>
