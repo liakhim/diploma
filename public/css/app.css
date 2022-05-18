@@ -11603,13 +11603,15 @@ p {
   font-size: 12px;
 }
 
+.place-page-title {
+  margin-top: 40px;
+}
 .place-page-content {
   display: flex;
   align-items: flex-start;
 }
 .place-page-content .image {
   max-width: 500px;
-  border: 1px solid red;
 }
 .place-page-content .image .carousel-inner .carousel-item img {
   width: 100%;
@@ -11617,8 +11619,79 @@ p {
 .place-page-content .info {
   width: calc(100% - 520px);
   margin: 0 0 0 20px;
-  border: 1px solid green;
 }
+.place-page-content .info-title {
+  margin-bottom: 20px;
+}
+.place-page-content .info-list {
+  border: 1px solid rgba(0, 0, 0, 0.55);
+  padding: 10px;
+  max-width: 360px;
+}
+.place-page-content .info-list-line {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.place-page-content .info-list-line .icon span {
+  line-height: 1;
+}
+.place-page-content .info-list-line .text {
+  padding: 3px 0 0 5px;
+}
+.place-page-content .info-list-line .text p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+}
+.place-page-content .info-list-line .text span {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.55);
+  line-height: 1;
+}
+.place-page-content .info-rating {
+  margin-top: 20px;
+}
+.place-page-comments {
+  margin: 40px 0;
+}
+.place-page-comments-title {
+  margin-bottom: 20px;
+}
+.place-page-comments-content .comment-card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1882352941);
+  max-width: 800px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+.place-page-comments-content .comment-card-title p {
+  color: #000;
+  font-size: 15px;
+}
+.place-page-comments-content .comment-card-rating {
+  margin-top: 5px;
+}
+.place-page-comments-content .comment-card-text {
+  margin-top: 5px;
+}
+.place-page-comments-content .comment-card-text p {
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 13px;
+}
+.place-page-comments-content .comment-card-name {
+  margin-top: 15px;
+}
+.place-page-comments-content .comment-card-name p {
+  font-size: 12px;
+}
+.place-page .stars span {
+  color: rgba(0, 0, 0, 0.55);
+}
+.place-page .stars span.green {
+  color: #3b8755;
+}
+
 .filters-wrapper {
   display: flex;
   align-items: flex-start;

@@ -1,11 +1,12 @@
 .place-page {
-    &-title {}
+    &-title {
+        margin-top: 40px;
+    }
     &-content {
         display: flex;
         align-items: flex-start;
         .image {
             max-width: 500px;
-            border: 1px solid red;
             .carousel {
                 &-inner {
                     .carousel-item {
@@ -19,11 +20,85 @@
         .info {
             width: calc(100% - 520px);
             margin: 0 0 0 20px;
-            border: 1px solid green;
-            &-title {}
-            &-list {}
-            &-rating {}
+            &-title {
+                margin-bottom: 20px;
+            }
+            &-list {
+                border: 1px solid  rgba(0,0,0,.55);
+                padding: 10px;
+                max-width: 360px;
+                &-line {
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    margin-bottom: 10px;
+                    .icon {
+                        span {
+                            line-height: 1;
+                        }
+                    }
+                    .text {
+                        padding: 3px 0 0 5px;
+                        p {
+                            font-size: 15px;
+                            font-weight: 500;
+                            line-height: 1;
+                        }
+                        span {
+                            font-size: 13px;
+                            color: rgba(0,0,0,.55);
+                            line-height: 1;
+                        }
+                    }
+                }
+            }
+            &-rating {
+                margin-top: 20px;
+            }
         }
     }
-    &-comments {}
+    &-comments {
+        margin: 40px 0;
+        &-title {
+            margin-bottom: 20px;
+        }
+        &-content {
+            .comment-card {
+                box-shadow: 0 0 10px #00000030;
+                max-width: 800px;
+                padding: 10px 20px;
+                margin-bottom: 10px;
+                &-title {
+                    p {
+                        color: #000;
+                        font-size: 15px;
+                    }
+                }
+                &-rating {
+                    margin-top: 5px;
+                }
+                &-text {
+                    margin-top: 5px;
+                    p {
+                        color: rgba(0,0,0,.55);
+                        font-size: 13px;
+                    }
+                }
+                &-name {
+                    margin-top: 15px;
+                    p {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+    .stars {
+        span {
+            color: rgba(0,0,0,.55);
+        }
+        span.green {
+            color: #3b8755;
+        }
+    }
 }
