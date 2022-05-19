@@ -23,6 +23,9 @@ Route::get('/places', function () {
 Route::get('/places/{id}', function () {
     return view('place');
 });
+Route::get('/articles/{id}', function () {
+    return view('article');
+});
 
 Auth::routes();
 

@@ -56,7 +56,7 @@
                 <div class="article-card-text">
                     <h5 class="card-title">Special title treatment</h5>
                     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="btn btn-success custom-btn" href="#">Read more</a>
+                    <a class="btn btn-success custom-btn" href="articles/10">Read more</a>
                 </div>
             </div>
         </div>

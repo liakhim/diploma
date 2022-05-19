@@ -90,7 +90,7 @@
             </div>
         </nav>
 
-        <main>
+        <main style="min-height: calc(100vh - 215px)">
             @yield('content')
         </main>
         <footer class="footer">

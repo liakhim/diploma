@@ -1,0 +1,13 @@
+.article-wrapper {
+    &-image {}
+    &-title {
+        h3 {
+            color: #000;
+        }
+    }
+    &-content {
+        p {
+            margin-bottom: 10px;
+        }
+    }
+}
