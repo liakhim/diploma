@@ -50,6 +50,6 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        return $user->hasRole('web-developer') ? redirect('/admin') :redirect('/home');
+        return $user->hasRole('web-developer') ? redirect('/admin/dashboard') :redirect('/home');
     }
 }

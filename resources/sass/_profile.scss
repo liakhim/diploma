@@ -1,0 +1,27 @@
+.profile {
+    margin-bottom: 40px;
+    .profile-title {
+        max-width: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 100px auto 0 auto;
+        .profile-title-text {
+            width: 90%;
+            p {}
+        }
+        .profile-title-icon {
+            width: 10%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            span {
+                line-height: 1;
+            }
+        }
+    }
+    .profile-form {
+        max-width: 500px;
+        margin: auto;
+    }
+}

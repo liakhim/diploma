@@ -11561,11 +11561,13 @@ p {
 .places-wrapper {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: flex-start;
   width: 100%;
 }
 .places-wrapper .place-card {
-  width: 300px;
+  width: calc(25% - 10px);
+  min-width: 265px;
   overflow: hidden;
   border-radius: 5px;
   cursor: pointer;
@@ -11690,6 +11692,33 @@ p {
 }
 .place-page .stars span.green {
   color: #3b8755;
+}
+
+.profile {
+  margin-bottom: 40px;
+}
+.profile .profile-title {
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 100px auto 0 auto;
+}
+.profile .profile-title .profile-title-text {
+  width: 90%;
+}
+.profile .profile-title .profile-title-icon {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.profile .profile-title .profile-title-icon span {
+  line-height: 1;
+}
+.profile .profile-form {
+  max-width: 500px;
+  margin: auto;
 }
 
 .filters-wrapper {
@@ -11840,6 +11869,31 @@ p {
 }
 .article-card-text .custom-btn {
   margin-top: auto;
+}
+
+.article-wrapper-image {
+  margin-top: 40px;
+  width: 640px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.article-wrapper-image img {
+  width: 100%;
+}
+.article-wrapper-title {
+  margin-top: 40px;
+}
+.article-wrapper-title h3, .article-wrapper-title .h3 {
+  color: #000;
+}
+.article-wrapper-content {
+  margin-top: 30px;
+  margin-bottom: 90px;
+}
+.article-wrapper-content p {
+  margin-bottom: 10px;
 }
 
 .navbar-search {

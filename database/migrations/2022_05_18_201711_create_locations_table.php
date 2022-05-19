@@ -20,8 +20,8 @@ class CreateLocationsTable extends Migration
             $table->integer('rating');
             $table->string('address');
             $table->string('description');
-            $table->string('concept');
-            $table->string('tag');
+            $table->string('concept')->nullable();
+            $table->string('tag')->nullable();
             $table->integer('min_guest_quantity');
             $table->integer('max_guest_quantity');
             $table->integer('budget');

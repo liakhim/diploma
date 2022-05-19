@@ -12,9 +12,15 @@ class LocationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $filter = $request->get('category');
+        if (isset($filter)) {
+            $places = Location::where('group_id', $filter)->get();
+        } else {
+            $places = Location::all();
+        }
+        return view('places', ['places' => $places, 'filter' => $filter]);
     }
 
     /**

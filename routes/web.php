@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\LocationController;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,14 +19,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/places', function () {
-    return view('places');
-});
+Route::get('/places', [LocationController::class, 'index']);
 Route::get('/places/{id}', function () {
     return view('place');
 });
 Route::get('/articles/{id}', function () {
     return view('article');
+});
+Route::get('/profile', function () {
+    $user_id = auth()->user()->getAuthIdentifier();
+    $user = User::find($user_id);
+    return view('profile', ['user' => $user]);
 });
 
 Auth::routes();

@@ -41,8 +41,8 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-menu me-auto">
                         <li class="navbar-menu-item"><a href="/">Главная</a></li>
-                        <li class="navbar-menu-item"><a href="/places?category=food">Еда</a></li>
-                        <li class="navbar-menu-item"><a href="/places?category=city">Город</a></li>
+                        <li class="navbar-menu-item"><a href="/places?category=1">Еда</a></li>
+                        <li class="navbar-menu-item"><a href="/places?category=2gi">Город</a></li>
                         <li class="navbar-menu-item"><a href="/places?category=active">Активный отдых</a></li>
                         <li class="navbar-menu-item"><a href="/places?category=culture">Культурный отдых</a></li>
                         <li class="navbar-menu-item"><a href="#">Фильтр-помощник</a></li>
@@ -90,7 +90,7 @@
             </div>
         </nav>
 
-        <main style="min-height: calc(100vh - 215px)">
+        <main style="min-height: 600px">
             @yield('content')
         </main>
         <footer class="footer">
