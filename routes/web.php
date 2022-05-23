@@ -22,7 +22,45 @@ Route::get('/', function () {
     $articles = Article::all();
     return view('welcome', ['articles' => $articles]);
 });
-Route::get('/places', [LocationController::class, 'index']);
+Route::get('/places',   [LocationController::class, 'index']);
+
+Route::get('/filters', function () {
+    $budgetFilters = [
+        'budget_filters' =>[
+            ['key' => 0,'min' => 0, 'max' => 0],
+            ['key' => 'до 1000', 'min' => 0, 'max' => 1000],
+            ['key' => '1000 - 3000', 'min' => 1000, 'max' => 3000],
+            ['key' => '3000 - 5000', 'min' => 3000, 'max' => 5000],
+            ['key' => 'от 5000','min' => 5000, 'max' => null]
+        ],
+        // sad, happy, holiday, romantic, relax
+        'mood_filters' =>[
+            ['key' => 'sad','name' => 'Грустное'],
+            ['key' => 'happy','name' => 'Радостное'],
+            ['key' => 'holiday','name' => 'Праздничное'],
+            ['key' => 'romantic','name' => 'Романтическое'],
+            ['key' => 'relax','name' => 'Расслабленное'],
+        ],
+        'company_filters' =>[
+            ['key' => 1,'min' => 1, 'max' => 1],
+            ['key' => '2 - 5', 'min' => 2, 'max' => 5],
+            ['key' => 'Больше 5', 'min' => 5, 'max' => null],
+        ],
+        'type_filters' =>[
+            ['key' => 'active','name' => 'Активный отдых'],
+            ['key' => 'culture','name' => 'Культурный отдых'],
+            ['key' => 'entertaining','name' => 'Развлечение']
+        ]
+    ];
+    $collect = collect($budgetFilters);
+    return response()->json($collect);
+});
+
+Route::get('/filter', function () {
+    $test = 'testing';
+    return view('filter', ['test' => $test]);
+});
+
 Route::get('/places/{id}', function () {
     return view('place');
 });
