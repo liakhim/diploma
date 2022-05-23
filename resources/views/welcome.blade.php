@@ -48,41 +48,22 @@
         <div class="news-title">
             <h3>Последние новости</h3>
         </div>
-        <div class="card article-card">
-            <div class="card-body article-card d-flex">
-                <div class="article-card-image">
-                    <img src="../assets/images/articles/2.jpeg" alt="">
-                </div>
-                <div class="article-card-text">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="btn btn-success custom-btn" href="articles/10">Read more</a>
-                </div>
-            </div>
-        </div>
-        <div class="card article-card">
-            <div class="card-body article-card d-flex">
-                <div class="article-card-image">
-                    <img src="../assets/images/articles/3.jpeg" alt="">
-                </div>
-                <div class="article-card-text">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="btn btn-success custom-btn" href="#">Read more</a>
+        <pre>
+            {{$articles}}
+        </pre>
+        @foreach ($articles as $article)
+            <div class="card article-card">
+                <div class="card-body article-card d-flex">
+                    <div class="article-card-image">
+                        <img src="../assets/images/articles/3.jpeg" alt="">
+                    </div>
+                    <div class="article-card-text">
+                        <h5 class="card-title">{{$article->title}}</h5>
+                        <p class="card-text">{{$article->body}}</p>
+                        <a class="btn btn-success custom-btn" href="articles/{{$article->id}}">Read more</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="card article-card">
-            <div class="card-body article-card d-flex">
-                <div class="article-card-image">
-                    <img src="../assets/images/articles/2.jpeg" alt="">
-                </div>
-                <div class="article-card-text">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="btn btn-success custom-btn" href="#">Read more</a>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 @endsection
