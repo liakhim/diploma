@@ -11744,6 +11744,16 @@ p {
 .filters-wrapper .dropdown-block .dropdown .dropdown-menu {
   width: 100%;
 }
+.filters-wrapper .filter-page .filter-table tbody tr {
+  vertical-align: center;
+}
+.filters-wrapper .filter-page .filter-table tbody tr td {
+  vertical-align: center;
+}
+.filters-wrapper .filter-page .filter-table tbody tr td span {
+  display: block;
+  margin-top: 5px;
+}
 
 .login {
   width: 100%;

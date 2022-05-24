@@ -22,4 +22,20 @@
             }
         }
     }
+    .filter-page {
+        .filter-table {
+            tbody {
+                tr {
+                    vertical-align: center;
+                    td {
+                        vertical-align: center;
+                        span {
+                            display: block;
+                            margin-top: 5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

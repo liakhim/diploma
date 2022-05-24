@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LocationController;
 use App\Models\Article;
+use App\Models\Location;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,11 +28,11 @@ Route::get('/places',   [LocationController::class, 'index']);
 Route::get('/filters', function () {
     $budgetFilters = [
         'budget_filters' =>[
-            ['key' => 0,'min' => 0, 'max' => 0],
-            ['key' => 'до 1000', 'min' => 0, 'max' => 1000],
-            ['key' => '1000 - 3000', 'min' => 1000, 'max' => 3000],
-            ['key' => '3000 - 5000', 'min' => 3000, 'max' => 5000],
-            ['key' => 'от 5000','min' => 5000, 'max' => null]
+            ['key' => 0, 'name' => '0', 'min' => 0, 'max' => 0],
+            ['key' => '0_1000', 'name' => 'до 1000', 'min' => 0, 'max' => 1000],
+            ['key' => '1000_3000', 'name' => '1000 - 3000', 'min' => 1000, 'max' => 3000],
+            ['key' => '3000_5000', 'name' => '3000 - 5000', 'min' => 3000, 'max' => 5000],
+            ['key' => '5000_many', 'name' => 'от 5000', 'min' => 5000, 'max' => null]
         ],
         // sad, happy, holiday, romantic, relax
         'mood_filters' =>[
@@ -42,9 +43,9 @@ Route::get('/filters', function () {
             ['key' => 'relax','name' => 'Расслабленное'],
         ],
         'company_filters' =>[
-            ['key' => 1,'min' => 1, 'max' => 1],
-            ['key' => '2 - 5', 'min' => 2, 'max' => 5],
-            ['key' => 'Больше 5', 'min' => 5, 'max' => null],
+            ['key' => '0_1', 'name' => '1', 'min' => 1, 'max' => 1],
+            ['key' => '2_5', 'name' => '2 - 5', 'min' => 2, 'max' => 5],
+            ['key' => '5_many', 'name' => 'больше 5', 'min' => 5, 'max' => null],
         ],
         'type_filters' =>[
             ['key' => 'active','name' => 'Активный отдых'],
@@ -56,9 +57,10 @@ Route::get('/filters', function () {
     return response()->json($collect);
 });
 
-Route::get('/filter', function () {
-    $test = 'testing';
-    return view('filter', ['test' => $test]);
+Route::get('/filter', function (Request $request) {
+    $filter_company = $request->get('filter_company');
+    $places = $filter_company ? Location::getWithFilters($filter_company) : [];
+    return view('filter', ['places' => $places]);
 });
 
 Route::get('/places/{id}', function () {

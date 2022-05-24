@@ -4,97 +4,50 @@
 <div class="container">
     <div class="filters-wrapper mt-4">
         <filters></filters>
-{{--        <div class="dropdown-block">--}}
-{{--            <div class="dropdown-title">--}}
-{{--                <h6>Бюджет</h6>--}}
-{{--            </div>--}}
-{{--            <div class="dropdown">--}}
-{{--                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">--}}
-{{--                    <span></span>--}}
-{{--                </button>--}}
-{{--                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">--}}
-{{--                    <li @click="chooseBudgetFilter(0)">0</li>--}}
-{{--                    <li><a class="dropdown-item" href="#">Another action</a></li>--}}
-{{--                    <li><a class="dropdown-item" href="#">Something else here</a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="dropdown-block">--}}
-{{--            <div class="dropdown-title">--}}
-{{--                <h6>Настроение</h6>--}}
-{{--            </div>--}}
-{{--            <div class="dropdown">--}}
-{{--                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">--}}
-{{--                    Dropdown button--}}
-{{--                </button>--}}
-{{--                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">--}}
-{{--                    <li><a class="dropdown-item" href="#">Action</a></li>--}}
-{{--                    <li><a class="dropdown-item" href="#">Another action</a></li>--}}
-{{--                    <li><a class="dropdown-item" href="#">Something else here</a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="dropdown-block">--}}
-{{--            <div class="dropdown-title">--}}
-{{--                <h6>Компания</h6>--}}
-{{--            </div>--}}
-{{--            <div class="dropdown">--}}
-{{--                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">--}}
-{{--                    Dropdown button--}}
-{{--                </button>--}}
-{{--                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">--}}
-{{--                    <li><a class="dropdown-item" href="#">Action</a></li>--}}
-{{--                    <li><a class="dropdown-item" href="#">Another action</a></li>--}}
-{{--                    <li><a class="dropdown-item" href="#">Something else here</a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="dropdown-block">--}}
-{{--            <div class="dropdown-title">--}}
-{{--                <h6>Вид отдыха</h6>--}}
-{{--            </div>--}}
-{{--            <div class="dropdown">--}}
-{{--                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">--}}
-{{--                    Dropdown button--}}
-{{--                </button>--}}
-{{--                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">--}}
-{{--                    <li><a class="dropdown-item" href="#">Action</a></li>--}}
-{{--                    <li><a class="dropdown-item" href="#">Another action</a></li>--}}
-{{--                    <li><a class="dropdown-item" href="#">Something else here</a></li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </div>--}}
     </div>
-{{--    <div class="container">--}}
-{{--        <table class="table">--}}
-{{--            <thead>--}}
-{{--            <tr>--}}
-{{--                <th scope="col">#</th>--}}
-{{--                <th scope="col">First</th>--}}
-{{--                <th scope="col">Last</th>--}}
-{{--                <th scope="col">Handle</th>--}}
-{{--            </tr>--}}
-{{--            </thead>--}}
-{{--            <tbody>--}}
-{{--            <tr>--}}
-{{--                <th scope="row">1</th>--}}
-{{--                <td>Mark</td>--}}
-{{--                <td>Otto</td>--}}
-{{--                <td>@mdo</td>--}}
-{{--            </tr>--}}
-{{--            <tr>--}}
-{{--                <th scope="row">2</th>--}}
-{{--                <td>Jacob</td>--}}
-{{--                <td>Thornton</td>--}}
-{{--                <td>@fat</td>--}}
-{{--            </tr>--}}
-{{--            <tr>--}}
-{{--                <th scope="row">3</th>--}}
-{{--                <td colspan="2">Larry the Bird</td>--}}
-{{--                <td>@twitter</td>--}}
-{{--            </tr>--}}
-{{--            </tbody>--}}
-{{--        </table>--}}
-{{--    </div>--}}
+    <div class="container mt-5">
+        <table class="table filter-table">
+            <thead>
+            <tr>
+                <th scope="col">Название места</th>
+                <th scope="col">Бюджет</th>
+                <th scope="col">Компания</th>
+                <th scope="col">Часы работы</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach ($places as $place)
+                <tr>
+                    <td>
+                        <span>{{$place->name}}</span>
+                    </td>
+                    <td>
+                        <span>{{$place->budget}}</span>
+                    </td>
+                    <td>
+                        <span>{{$place->min_guest_quantity}}
+                            @if($place->max_guest_quantity)
+                                - {{$place->max_guest_quantity}}
+                            @else
+                                и более
+                            @endif
+                        </span>
+                    </td>
+                    <td>
+                        @if($place->time_open == '0' && $place->time_close == '0')
+                            <span>Круглосуточно</span>
+                        @else
+                            <span>{{$place->time_open}} - {{$place->time_close}}</span>
+                        @endif
+                    </td>
+                    <td>
+                        <a class="btn btn-link" href="#">Открыть</a>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>
 @endsection

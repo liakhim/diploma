@@ -43,8 +43,8 @@
                         <li class="navbar-menu-item"><a href="/">Главная</a></li>
                         <li class="navbar-menu-item"><a href="/places?category=1">Еда</a></li>
                         <li class="navbar-menu-item"><a href="/places?category=2">Город</a></li>
-                        <li class="navbar-menu-item"><a href="/places?category=active">Активный отдых</a></li>
-                        <li class="navbar-menu-item"><a href="/places?category=culture">Культурный отдых</a></li>
+                        <li class="navbar-menu-item"><a href="/places?category=3">Активный отдых</a></li>
+                        <li class="navbar-menu-item"><a href="/places?category=4">Культурный отдых</a></li>
                         <li class="navbar-menu-item"><a href="/filter">Фильтр-помощник</a></li>
                     </ul>
 

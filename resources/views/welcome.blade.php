@@ -60,7 +60,7 @@
                     <div class="article-card-text">
                         <h5 class="card-title">{{$article->title}}</h5>
                         <p class="card-text">{{$article->body}}</p>
-                        <a class="btn btn-success custom-btn" href="articles/{{$article->id}}">Read more</a>
+                        <a class="btn btn-success custom-btn" href="articles/{{$article->id}}">Читать подробнее</a>
                     </div>
                 </div>
             </div>
