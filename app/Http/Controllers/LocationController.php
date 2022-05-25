@@ -28,9 +28,25 @@ class LocationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $location = new Location([
+            'name' => $request->get('name'),
+            'group_id' => $request->get('group_id'),
+            'address' => $request->get('address'),
+            'rating' => 0,
+            'description' => $request->get('description'),
+            'concept' => $request->get('concept'),
+            'tag' => $request->get('tag'),
+            'min_guest_quantity' => $request->get('min_guest_quantity'),
+            'max_guest_quantity' => $request->get('max_guest_quantity'),
+            'budget' => $request->get('budget'),
+            'time_open' => $request->get('time_open'),
+            'time_close' => $request->get('time_close'),
+            'phone' => $request->get('phone'),
+        ]);
+        $location->save();
+        return success;
     }
 
     /**

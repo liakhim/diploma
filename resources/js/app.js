@@ -21,6 +21,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('filters', require('./components/Filters.vue').default);
+Vue.component('location-create-form', require('./components/LocationCreateForm.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

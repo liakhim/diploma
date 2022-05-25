@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\LocationController;
 use App\Models\Article;
 use App\Models\Location;
@@ -28,7 +29,7 @@ Route::get('/places',   [LocationController::class, 'index']);
 Route::get('/filters', function () {
     $budgetFilters = [
         'budget_filters' =>[
-            ['key' => 0, 'name' => '0', 'min' => 0, 'max' => 0],
+            ['key' => '0_0', 'name' => '0', 'min' => 0, 'max' => 0],
             ['key' => '0_1000', 'name' => 'до 1000', 'min' => 0, 'max' => 1000],
             ['key' => '1000_3000', 'name' => '1000 - 3000', 'min' => 1000, 'max' => 3000],
             ['key' => '3000_5000', 'name' => '3000 - 5000', 'min' => 3000, 'max' => 5000],
@@ -59,7 +60,10 @@ Route::get('/filters', function () {
 
 Route::get('/filter', function (Request $request) {
     $filter_company = $request->get('filter_company');
-    $places = $filter_company ? Location::getWithFilters($filter_company) : [];
+    $filter_budget = $request->get('filter_budget');
+    $filter_mood = $request->get('filter_mood');
+    $filter_type = $request->get('filter_type');
+    $places = $filter_company && $filter_budget && $filter_mood ? Location::getWithFilters($filter_company, $filter_budget, $filter_mood, $filter_type) : [];
     return view('filter', ['places' => $places]);
 });
 
@@ -102,8 +106,16 @@ Route::group(['middleware' => 'role:web-developer', 'prefix' => 'admin'], functi
             return view('admin.articles.create');
         });
     });
-    Route::get('/places', function() {
-        return view('admin.places', ['users' => 'name test']);
+    Route::group(['prefix' => 'places'], function() {
+        Route::get('/', function() {
+            $locations = Location::all();
+            return view('admin.places', ['locations' => $locations]);
+        });
+        Route::get('/create', function() {
+            $locations = Location::all();
+            return view('admin.places.create', ['locations' => $locations]);
+        });
+        Route::post('/create', [LocationController::class, 'create']);
     });
     Route::get('/filters', function() {
         return view('admin.filters');

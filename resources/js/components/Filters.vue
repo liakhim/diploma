@@ -70,10 +70,14 @@
         </div>
     </div>
     <div class="d-flex justify-content-end mt-3">
+        <button type="button"
+                @click="refresh()"
+                class="btn btn-danger custom-btn login-register-btn">
+            Сбросить
+        </button>
         <button type="submit"
-                :disabled="!budgetFilter || !companyFilter || !moodFilter || !typeFilter"
                 @click="redirect()"
-                class="btn btn-success custom-btn login-register-btn">
+                class="btn btn-success custom-btn login-register-btn ms-2">
             Применить
         </button>
     </div>
@@ -98,13 +102,18 @@
         },
         computed: {
           allFilters () {
-              return '?filter_budget=' + this.budgetFilter?.key + '&filter_mood=' + this.moodFilter?.key +
-                  '&filter_company=' + this.companyFilter?.key + '&filter_type=' + this.typeFilter?.key
+              return '?filter_budget=' + (this.budgetFilter?.key ? this.budgetFilter?.key : null)
+                      + '&filter_mood=' + (this.moodFilter?.key ? this.moodFilter?.key : null)
+                      + '&filter_company=' + (this.companyFilter?.key ? this.companyFilter?.key : null)
+                      + '&filter_type=' + (this.typeFilter?.key ? this.typeFilter.key : null)
           }
         },
         methods: {
             redirect () {
               document.location.replace(String(document.location).split('?')[0] + this.allFilters)
+            },
+            refresh () {
+                document.location.replace(String(document.location).split('?')[0])
             },
             chooseBudgetFilter (filter) {
                 this.budgetFilter = filter
@@ -132,7 +141,7 @@
                 if (params.get("filter_company")) {
                     this.companyFilter = this.companyFilters.find(v => v.key === params.get("filter_company"))
                 } else {
-                    this.companyFilter = this.companyFilters[0]
+                    // this.companyFilter = this.companyFilters[0]
                 }
                 if (params.get("filter_mood")) {
                     this.moodFilter = this.moodFilters.find(v => v.key === params.get("filter_mood"))

@@ -37,16 +37,6 @@
                     <hr>
                     <?php $route = explode("/", strval(url()->current()))[4]; ?>
                     <ul class="nav nav-pills flex-column mb-auto">
-                        <li class="nav-item">
-                            <a href="/admin/dashboard"
-                               @class([
-                                'nav-link',
-                                'active' => ($route === 'dashboard'),
-                                'text-white' => $route !== 'dashboard'
-                               ])>
-                                Статистика
-                            </a>
-                        </li>
                         <li>
                             <a href="/admin/users"
                                @class([
