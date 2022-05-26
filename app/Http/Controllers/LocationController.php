@@ -46,7 +46,7 @@ class LocationController extends Controller
             'phone' => $request->get('phone'),
         ]);
         $location->save();
-        return success;
+        return redirect('admin/places/create');
     }
 
     /**

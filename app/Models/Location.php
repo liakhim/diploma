@@ -29,6 +29,10 @@ class Location extends Model
             ->count(10)
             ->create();
     }
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
     public function getWithFilters($filter_company, $filter_budget, $filter_mood, $filter_type) {
         $rules = [];
         if ($filter_company !== 'null') {

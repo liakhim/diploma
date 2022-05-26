@@ -47,7 +47,7 @@
                                 </div>
                                 <div class="text">
                                     <p>Часы работы:</p>
-                                    <span>10:00 - 22:00</span>
+                                    <span>{{$place_info->time_open}}:00 - {{$place_info->time_close}}:00</span>
                                 </div>
                             </div>
                             <div class="info-list-line">
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="text">
                                     <p>Адрес:</p>
-                                    <span>Ленина, 123</span>
+                                    <span>{{$place_info->address}}</span>
                                 </div>
                             </div>
                             <div class="info-list-line">
@@ -65,7 +65,7 @@
                                 </div>
                                 <div class="text">
                                     <p>Телефон:</p>
-                                    <span>8 843 222-33-33</span>
+                                    <span>{{$place_info->phone}}</span>
                                 </div>
                             </div>
                             <div class="info-list-line">
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="text">
                                     <p>Средний чек:</p>
-                                    <span>1200 руб.</span>
+                                    <span>{{$place_info->budget}} руб</span>
                                 </div>
                             </div>
                         </div>
@@ -89,55 +89,39 @@
 {{--                        </div>--}}
                     </div>
                 </div>
+                @if(count($comments))
                 <div class="place-page-comments">
                     <div class="place-page-comments-title">
                         <h6>Отзывы о месте:</h6>
                     </div>
                     <div class="place-page-comments-content">
-                        <div class="comment-card">
-                            <div class="comment-card-title">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </div>
-                            <div class="comment-card-rating">
-                                <div class="stars">
-                                    <span class="material-symbols-outlined green">star</span>
-                                    <span class="material-symbols-outlined green">star</span>
-                                    <span class="material-symbols-outlined">star</span>
-                                    <span class="material-symbols-outlined">star</span>
-                                    <span class="material-symbols-outlined">star</span>
+                        @foreach($comments as $comment)
+                            <div class="comment-card">
+                                <div class="comment-card-title">
+                                    <p>{{$comment->title}}</p>
+                                </div>
+                                <div class="comment-card-rating">
+                                    <div class="stars">
+                                        @for ($i = 0; $i <   5; $i++)
+                                            <span @class([
+                                            'material-symbols-outlined',
+                                            'green' => $comment->rating > $i
+                                            ])>star</span>
+                                        @endfor
+                                    </div>
+                                </div>
+                                <div class="comment-card-text">
+                                    <p>{{$comment->body}}</p>
+                                </div>
+                                <div class="comment-card-name">
+                                    <p>{{$comment->sign}}</p>
                                 </div>
                             </div>
-                           <div class="comment-card-text">
-                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, velit.
-                                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, neque!</p>
-                           </div>
-                            <div class="comment-card-name">
-                                <p>John Doe</p>
-                            </div>
-                        </div>
-                        <div class="comment-card">
-                            <div class="comment-card-title">
-                                <p>Lorem ipsum dolor sit amet.</p>
-                            </div>
-                            <div class="comment-card-rating">
-                                <div class="stars">
-                                    <span class="material-symbols-outlined green">star</span>
-                                    <span class="material-symbols-outlined green">star</span>
-                                    <span class="material-symbols-outlined">star</span>
-                                    <span class="material-symbols-outlined">star</span>
-                                    <span class="material-symbols-outlined">star</span>
-                                </div>
-                            </div>
-                            <div class="comment-card-text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis, velit.
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor, neque!</p>
-                            </div>
-                            <div class="comment-card-name">
-                                <p>John Doe</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
+                @endif
+                <add-comment class="mb-4"></add-comment>
             </div>
         </div>
     </div>

@@ -67,8 +67,10 @@ Route::get('/filter', function (Request $request) {
     return view('filter', ['places' => $places]);
 });
 
-Route::get('/places/{id}', function () {
-    return view('place');
+Route::get('/places/{id}', function ($id) {
+    $place_info = Location::find($id);
+    $comments = $place_info->comments;
+    return view('place', ['place_info' => $place_info, 'comments' => $comments]);
 });
 Route::get('/articles/{id}', function ($id) {
     $article = Article::find($id);
@@ -116,6 +118,9 @@ Route::group(['middleware' => 'role:web-developer', 'prefix' => 'admin'], functi
             return view('admin.places.create', ['locations' => $locations]);
         });
         Route::post('/create', [LocationController::class, 'create']);
+        Route::get('/success', function () {
+            return view('admin.places.success');
+        });
     });
     Route::get('/filters', function() {
         return view('admin.filters');
