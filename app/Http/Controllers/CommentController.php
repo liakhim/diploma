@@ -22,9 +22,17 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createComment(Request $request)
     {
-        //
+        $comment = new Comment([
+            'location_id' => $request->get('location_id'),
+            'title' => $request->get('title'),
+            'body' => $request->get('body'),
+            'rating' => $request->get('rating'),
+            'sign' => $request->get('sign')
+        ]);
+        $comment->save();
+        return 'success';
     }
 
     /**

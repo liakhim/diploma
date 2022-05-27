@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LocationController;
 use App\Models\Article;
 use App\Models\Location;
@@ -76,6 +77,7 @@ Route::get('/articles/{id}', function ($id) {
     $article = Article::find($id);
     return view('article', ['article' => $article]);
 });
+Route::post('/comment/create', [CommentController::class, 'createComment']);
 Route::get('/profile', function () {
     $user_id = auth()->user()->getAuthIdentifier();
     $user = User::find($user_id);
@@ -117,7 +119,12 @@ Route::group(['middleware' => 'role:web-developer', 'prefix' => 'admin'], functi
             $locations = Location::all();
             return view('admin.places.create', ['locations' => $locations]);
         });
+        Route::get('/edit/{id}', function($id) {
+            $location = Location::find($id);
+            return view('admin.places.edit', ['location' => $location]);
+        });
         Route::post('/create', [LocationController::class, 'create']);
+        Route::post('/edit', [LocationController::class, 'edit']);
         Route::get('/success', function () {
             return view('admin.places.success');
         });

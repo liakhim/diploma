@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 @endif
-                <add-comment class="mb-4"></add-comment>
+                <add-comment location_id="{{$place_info->id}}" class="mb-4"></add-comment>
             </div>
         </div>
     </div>

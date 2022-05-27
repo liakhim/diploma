@@ -25,7 +25,7 @@
                     <label for="address" class="form-label">Подпись:</label>
                     <input v-model="sign" type="text" class="form-control" id="address" placeholder="1234 Main St">
                 </div>
-                <button class="btn btn-info mt-2">
+                <button @click="sendComment()" type="button" class="btn btn-info mt-2">
                     <span class="text-white">Отправить</span>
                 </button>
             </form>
@@ -33,6 +33,7 @@
     </div>
 </template>
 <script>
+    import axios from 'axios';
     export default {
         name: 'AddComment',
         data () {
@@ -44,9 +45,20 @@
                 sign: ''
             }
         },
+        props: ['location_id'],
         methods: {
             sendComment () {
-
+                const data = {
+                    location_id: Number(this.location_id),
+                    title: this.title,
+                    rating: this.rating,
+                    body: this.description,
+                    sign: this.sign
+                }
+                axios.post('/comment/create', data)
+                    .then((response) => {
+                        alert('complete')
+                    })
             }
         }
     }

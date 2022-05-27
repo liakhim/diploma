@@ -89,20 +89,21 @@
         name: 'LocationCreateForm',
         data () {
           return {
-              name: 'saxsa',
+              name: '',
               group_id: 1,
-              address: 'dcsa',
-              description: 'xasxcec',
-              concept: 'dscdcs',
-              tag: 'cdscdscsd',
-              min_guest_quantity: 2,
-              max_guest_quantity: 5,
-              budget: 1300,
-              time_open: 10,
-              time_close: 22,
-              phone: '89999999999'
+              address: '',
+              description: '',
+              concept: '',
+              tag: '',
+              min_guest_quantity: 0,
+              max_guest_quantity: 0,
+              budget: 0,
+              time_open: 0,
+              time_close: 0,
+              phone: ''
           }
         },
+        props: ['initData'],
         methods: {
             save () {
                 const data = {
@@ -123,6 +124,23 @@
                     .then((response) => {
 
                     })
+            }
+        },
+        mounted () {
+            if (!!this.initData) {
+                this.initData = JSON.parse(this.initData)
+                this.name = this.initData.name
+                this.group_id = this.initData.id
+                this.address = this.initData.address
+                this.description = this.initData.description
+                this.concept = this.initData.concept
+                this.tag = this.initData.tag
+                this.min_guest_quantity = this.initData.min_guest_quantity
+                this.max_guest_quantity = this.initData.max_guest_quantity
+                this.budget = this.initData.budget
+                this.time_open = this.initData.time_open
+                this.time_close = this.initData.time_close
+                this.phone = this.initData.phone
             }
         }
     }
