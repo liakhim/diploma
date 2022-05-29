@@ -1,15 +1,21 @@
 <template>
     <div class="container">
         <input v-on:change="handleFileUpload()" ref="file" name="myFile" type="file">
+        <div class="preview-image">
+            <img v-bind:src="imagePreview" v-show="showPreview"/>
+        </div>
         <form class="row g-3">
             <div class="col-12">
                 <label for="inputEmail4" class="form-label">Название места</label>
                 <input v-model="name" type="text" class="form-control" id="inputEmail4">
             </div>
             <div class="col-12">
+                <label for="inputEmail4" class="form-label">Группа места</label>
                 <select v-model="group_id" id="group_id" class="form-select">
-                    <option>1</option>
-                    <option>2</option>
+                    <option value="1">1 (Еда)</option>
+                    <option value="2">2 (Город)</option>
+                    <option value="3">3 (Активный отдых)</option>
+                    <option value="4">4 (Культурный отдых)</option>
                 </select>
             </div>
             <div class="col-12">
@@ -102,13 +108,25 @@
               time_open: 0,
               time_close: 0,
               phone: '',
-              file: ''
+              file: '',
+              imagePreview: '',
+              showPreview: false
           }
         },
         props: ['initData'],
         methods: {
             handleFileUpload () {
                 this.file = this.$refs.file.files[0];
+                let reader  = new FileReader();
+                reader.addEventListener("load", function () {
+                    this.showPreview = true;
+                    this.imagePreview = reader.result;
+                }.bind(this), false);
+                if( this.file ){
+                    if ( /\.(jpe?g|png|gif)$/i.test( this.file.name ) ) {
+                        reader.readAsDataURL( this.file );
+                    }
+                }
             },
             save () {
                 const data = {
@@ -167,3 +185,11 @@
         }
     }
 </script>
+<style lang="scss">
+    .preview-image {
+        width: 400px;
+        img {
+            width: 100%;
+        }
+    }
+</style>
