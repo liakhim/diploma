@@ -21,7 +21,8 @@ class Location extends Model
         'budget',
         'time_open',
         'time_close',
-        'phone'
+        'phone',
+        'image_url'
     ];
     public function run()
     {

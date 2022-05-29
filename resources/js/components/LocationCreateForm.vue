@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <input v-on:change="handleFileUpload()" ref="file" name="myFile" type="file">
         <form class="row g-3">
             <div class="col-12">
                 <label for="inputEmail4" class="form-label">Название места</label>
@@ -100,11 +101,15 @@
               budget: 0,
               time_open: 0,
               time_close: 0,
-              phone: ''
+              phone: '',
+              file: ''
           }
         },
         props: ['initData'],
         methods: {
+            handleFileUpload () {
+                this.file = this.$refs.file.files[0];
+            },
             save () {
                 const data = {
                     name: this.name,
@@ -120,7 +125,24 @@
                     time_close: this.time_close,
                     phone: this.phone
                 }
-                axios.post('/admin/places/create', data)
+                let formData = new FormData();
+                formData.append('file', this.file);
+                formData.append('name', this.name);
+                formData.append('group_id', this.group_id);
+                formData.append('address', this.address);
+                formData.append('description', this.description);
+                formData.append('concept', this.concept);
+                formData.append('tag', this.tag);
+                formData.append('min_guest_quantity', this.min_guest_quantity);
+                formData.append('max_guest_quantity', this.max_guest_quantity);
+                formData.append('budget', this.budget);
+                formData.append('time_open', this.time_open);
+                formData.append('time_close', this.time_close);
+                formData.append('phone', this.phone);
+
+                axios.post('/admin/places/create', formData, {headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }})
                     .then((response) => {
 
                     })
