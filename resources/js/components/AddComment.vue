@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button @click="showForm = true" class="btn btn-success">Добавить отзыв</button>
+        <button @click="showForm = true" class="btn btn-success mt-3">Добавить отзыв</button>
         <div v-if="showForm" class="place-page-comments-add mt-2">
             <form>
                 <div class="col-12">
