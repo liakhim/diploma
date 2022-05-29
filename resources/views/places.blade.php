@@ -6,7 +6,7 @@
             @foreach ($places as $place)
                 <a href="places/{{$place->id}}" class="place-card">
                     <div class="place-card-image">
-                        <img src="../../assets/images/banners/2.jpeg" alt="">
+                        <img src="/storage/locations/{{$place->image_url}}" alt="">
                     </div>
                     <div class="place-card-title">
                         <span>{{$place->group_id}}</span>

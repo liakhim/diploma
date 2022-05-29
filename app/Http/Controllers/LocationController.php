@@ -30,22 +30,35 @@ class LocationController extends Controller
      */
     public function create(Request $request)
     {
-        $location = new Location([
-            'name' => $request->get('name'),
-            'group_id' => $request->get('group_id'),
-            'address' => $request->get('address'),
-            'rating' => 0,
-            'description' => $request->get('description'),
-            'concept' => $request->get('concept'),
-            'tag' => $request->get('tag'),
-            'min_guest_quantity' => $request->get('min_guest_quantity'),
-            'max_guest_quantity' => $request->get('max_guest_quantity'),
-            'budget' => $request->get('budget'),
-            'time_open' => $request->get('time_open'),
-            'time_close' => $request->get('time_close'),
-            'phone' => $request->get('phone'),
-        ]);
-        $location->save();
+        if( $request->hasFile('file')){
+            // Имя и расширение файла
+            $filenameWithExt = $request->file('file')->getClientOriginalName();
+            // Только оригинальное имя файла
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Расширение
+            $extention = $request->file('file')->getClientOriginalExtension();
+            // Путь для сохранения
+            $fileNameToStore = "main_image/".$filename."_".time().".".$extention;
+            // Сохраняем файл
+            $path = $request->file('file')->storeAs('public/locations', $fileNameToStore);
+            $location = new Location([
+                'name' => $request->get('name'),
+                'group_id' => $request->get('group_id'),
+                'address' => $request->get('address'),
+                'rating' => 0,
+                'description' => $request->get('description'),
+                'concept' => $request->get('concept'),
+                'tag' => $request->get('tag'),
+                'min_guest_quantity' => $request->get('min_guest_quantity'),
+                'max_guest_quantity' => $request->get('max_guest_quantity'),
+                'budget' => $request->get('budget'),
+                'time_open' => $request->get('time_open'),
+                'time_close' => $request->get('time_close'),
+                'phone' => $request->get('phone'),
+                'image_url' => $fileNameToStore
+            ]);
+            $location->save();
+        }
         return redirect('admin/places/create');
     }
 
@@ -57,22 +70,34 @@ class LocationController extends Controller
      */
     public function edit(Request $request)
     {
-        $location = new Location([
-            'name' => $request->get('name'),
-            'group_id' => $request->get('group_id'),
-            'address' => $request->get('address'),
-            'rating' => 0,
-            'description' => $request->get('description'),
-            'concept' => $request->get('concept'),
-            'tag' => $request->get('tag'),
-            'min_guest_quantity' => $request->get('min_guest_quantity'),
-            'max_guest_quantity' => $request->get('max_guest_quantity'),
-            'budget' => $request->get('budget'),
-            'time_open' => $request->get('time_open'),
-            'time_close' => $request->get('time_close'),
-            'phone' => $request->get('phone'),
-        ]);
-        $location->update();
+        if( $request->hasFile('file')) {
+            // Имя и расширение файла
+            $filenameWithExt = $request->file('file')->getClientOriginalName();
+            // Только оригинальное имя файла
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Расширение
+            $extention = $request->file('file')->getClientOriginalExtension();
+            // Путь для сохранения
+            $fileNameToStore = "main_image/" . $filename . "_" . time() . "." . $extention;
+            // Сохраняем файл
+            $path = $request->file('file')->storeAs('public/locations', $fileNameToStore);
+            $location = new Location([
+                'name' => $request->get('name'),
+                'group_id' => $request->get('group_id'),
+                'address' => $request->get('address'),
+                'rating' => 0,
+                'description' => $request->get('description'),
+                'concept' => $request->get('concept'),
+                'tag' => $request->get('tag'),
+                'min_guest_quantity' => $request->get('min_guest_quantity'),
+                'max_guest_quantity' => $request->get('max_guest_quantity'),
+                'budget' => $request->get('budget'),
+                'time_open' => $request->get('time_open'),
+                'time_close' => $request->get('time_close'),
+                'phone' => $request->get('phone'),
+            ]);
+            $location->update();
+        }
         return redirect('admin/places/create');
     }
 

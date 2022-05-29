@@ -17,14 +17,14 @@
                             </div>
                             <div class="carousel-inner">
                                 <div class="carousel-item active" data-bs-interval="10000">
-                                    <img src="../../assets/images/banners/2.jpeg" alt="">
+                                    <img src="/storage/locations/{{$place_info->image_url}}" alt="">
                                 </div>
-                                <div class="carousel-item" data-bs-interval="2000">
-                                    <img src="../../assets/images/banners/2.jpeg" alt="">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="../../assets/images/banners/2.jpeg" alt="">
-                                </div>
+{{--                                <div class="carousel-item" data-bs-interval="2000">--}}
+{{--                                    <img src="../../assets/images/banners/2.jpeg" alt="">--}}
+{{--                                </div>--}}
+{{--                                <div class="carousel-item">--}}
+{{--                                    <img src="../../assets/images/banners/2.jpeg" alt="">--}}
+{{--                                </div>--}}
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
