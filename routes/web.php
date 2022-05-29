@@ -137,6 +137,35 @@ Route::group(['middleware' => 'role:web-developer', 'prefix' => 'admin'], functi
         });
     });
     Route::get('/filters', function() {
-        return view('admin.filters');
+        $budgetFilters = [
+            'budget_filters' =>[
+                ['key' => '0_0', 'name' => '0', 'min' => 0, 'max' => 0],
+                ['key' => '0_1000', 'name' => 'до 1000', 'min' => 0, 'max' => 1000],
+                ['key' => '1000_3000', 'name' => '1000 - 3000', 'min' => 1000, 'max' => 3000],
+                ['key' => '3000_5000', 'name' => '3000 - 5000', 'min' => 3000, 'max' => 5000],
+                ['key' => '5000_many', 'name' => 'от 5000', 'min' => 5000, 'max' => null]
+            ],
+            // sad, happy, holiday, romantic, relax
+            'mood_filters' =>[
+                ['key' => 'sad','name' => 'Грустное'],
+                ['key' => 'happy','name' => 'Радостное'],
+                ['key' => 'holiday','name' => 'Праздничное'],
+                ['key' => 'romantic','name' => 'Романтическое'],
+                ['key' => 'relax','name' => 'Расслабленное'],
+            ],
+            'company_filters' =>[
+                ['key' => '0_1', 'name' => '1', 'min' => 1, 'max' => 1],
+                ['key' => '2_5', 'name' => '2 - 5', 'min' => 2, 'max' => 5],
+                ['key' => '5_many', 'name' => 'больше 5', 'min' => 5, 'max' => null],
+            ],
+            'type_filters' =>[
+                ['key' => 'active','name' => 'Активный отдых'],
+                ['key' => 'passive','name' => 'Пассивный отдых'],
+                ['key' => 'culture','name' => 'Культурный отдых'],
+                ['key' => 'entertaining','name' => 'Развлечение']
+            ]
+        ];
+        $collect = collect($budgetFilters);
+        return view('admin.filters', ['filters' => ($collect)]);
     });
 });

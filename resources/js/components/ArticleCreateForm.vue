@@ -84,7 +84,7 @@
                         'Content-Type': 'multipart/form-data'
                     }})
                     .then((response) => {
-                        // document.location.replace('/admin/articles/');
+                        document.location.replace('/admin/articles/');
                     })
             }
         },
