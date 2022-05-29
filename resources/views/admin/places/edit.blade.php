@@ -14,5 +14,5 @@ arrow_back_ios_new
 @endsection
 
 @section('content')
-    <location-create-form init-data="{{$location}}"></location-create-form>
+    <location-create-form init-data="{{$location}}" location_id="{{$location->id}}"></location-create-form>
 @endsection

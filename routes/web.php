@@ -110,7 +110,12 @@ Route::group(['middleware' => 'role:web-developer', 'prefix' => 'admin'], functi
         Route::get('/create', function() {
             return view('admin.articles.create');
         });
+        Route::get('/edit/{id}', function($id) {
+            $article = Article::find($id);
+            return view('admin.articles.edit', ['article' => $article]);
+        });
         Route::post('/create', [ArticleController::class, 'create']);
+        Route::post('/edit', [ArticleController::class, 'edit']);
     });
     Route::group(['prefix' => 'places'], function() {
         Route::get('/', function() {

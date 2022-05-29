@@ -55,7 +55,7 @@
             <div class="card article-card">
                 <div class="card-body article-card d-flex">
                     <div class="article-card-image">
-                        <img src="../assets/images/articles/3.jpeg" alt="">
+                        <img src="/storage/articles/{{$article->image_url}}" alt="">
                     </div>
                     <div class="article-card-text">
                         <h5 class="card-title">{{$article->title}}</h5>

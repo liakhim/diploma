@@ -32,13 +32,13 @@
                         <td>{{$article->description}}</td>
                         <td>{{$article->created_at}}</td>
                         <td>
-                            <button class="btn btn-warning btn-sm d-inline-flex align-items-center"
+                            <a href="/admin/articles/edit/{{$article->id}}" class="btn btn-warning btn-sm d-inline-flex align-items-center"
                                     title="Редактировать"
                             >
                                 <span class="material-symbols-outlined fs-6">
                                     settings_suggest
                                 </span>
-                            </button>
+                            </a>
                             <button class="btn btn-danger btn-sm d-inline-flex align-items-center"
                                     title="Удалить"
                             >

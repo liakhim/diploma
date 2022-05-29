@@ -1,8 +1,13 @@
 <template>
     <div class="container">
+        <div v-if="oldImage.length" class="old-image">
+            <p class="mb-3">Текущее изображение:</p>
+            <img :src="'/storage/locations/' + oldImage" alt="">
+        </div>
         <input v-on:change="handleFileUpload()" ref="file" name="myFile" type="file">
-        <div class="preview-image">
-            <img v-bind:src="imagePreview" v-show="showPreview"/>
+        <div v-if="showPreview" class="preview-image">
+            <p class="mt-3 mb-3">Загружаемое изображение:</p>
+            <img v-bind:src="imagePreview" alt=""/>
         </div>
         <form class="row g-3">
             <div class="col-12">
@@ -29,19 +34,20 @@
             <div class="col-12">
                 <label for="concept" class="form-label">Вид отдыха</label>
                 <select v-model="concept" id="concept" class="form-select">
-                    <option selected>Активный отдых</option>
-                    <option>Культурный отдых</option>
-                    <option>Развлечение</option>
+                    <option value="active" selected>Активный отдых</option>
+                    <option value="passive">Пассивный отдых</option>
+                    <option value="culture">Культурный отдых</option>
+                    <option value="entertaining">Развлечение</option>
                 </select>
             </div>
             <div class="col-12">
                 <label for="mood" class="form-label">Настроение</label>
                 <select v-model="tag" id="mood" class="form-select">
-                    <option selected>Грустное</option>
-                    <option>Радостное</option>
-                    <option>Праздничное</option>
-                    <option>Романтическое</option>
-                    <option>Расслабленное</option>
+                    <option value="sad" selected>Грустное</option>
+                    <option value="happy">Радостное</option>
+                    <option value="holiday">Праздничное</option>
+                    <option value="romantic">Романтическое</option>
+                    <option value="relax">Расслабленное</option>
                 </select>
             </div>
             <div class="col-12">
@@ -96,6 +102,7 @@
         name: 'LocationCreateForm',
         data () {
           return {
+              oldImage: '',
               name: '',
               group_id: 1,
               address: '',
@@ -113,7 +120,7 @@
               showPreview: false
           }
         },
-        props: ['initData'],
+        props: ['initData', 'location_id'],
         methods: {
             handleFileUpload () {
                 this.file = this.$refs.file.files[0];
@@ -143,26 +150,30 @@
                     time_close: this.time_close,
                     phone: this.phone
                 }
-                let formData = new FormData();
-                formData.append('file', this.file);
-                formData.append('name', this.name);
-                formData.append('group_id', this.group_id);
-                formData.append('address', this.address);
-                formData.append('description', this.description);
-                formData.append('concept', this.concept);
-                formData.append('tag', this.tag);
-                formData.append('min_guest_quantity', this.min_guest_quantity);
-                formData.append('max_guest_quantity', this.max_guest_quantity);
-                formData.append('budget', this.budget);
-                formData.append('time_open', this.time_open);
-                formData.append('time_close', this.time_close);
-                formData.append('phone', this.phone);
+                    let formData = new FormData();
+                    formData.append('file', this.file);
+                    formData.append('name', this.name);
+                    formData.append('group_id', this.group_id);
+                    formData.append('address', this.address);
+                    formData.append('description', this.description);
+                    formData.append('concept', this.concept);
+                    formData.append('tag', this.tag);
+                    formData.append('rating', this.rating);
+                    formData.append('min_guest_quantity', this.min_guest_quantity);
+                    formData.append('max_guest_quantity', this.max_guest_quantity);
+                    formData.append('budget', this.budget);
+                    formData.append('time_open', this.time_open);
+                    formData.append('time_close', this.time_close);
+                    formData.append('phone', this.phone);
+                if (this.initData) {
+                    formData.append('location_id', this.location_id);
+                }
 
-                axios.post('/admin/places/create', formData, {headers: {
+                axios.post('/admin/places/' + (this.initData ? 'edit' : 'create'), formData, {headers: {
                         'Content-Type': 'multipart/form-data'
                     }})
                     .then((response) => {
-                        document.location.replace('/admin/places/');
+                        // document.location.replace('/admin/places/');
                     })
             }
         },
@@ -175,12 +186,14 @@
                 this.description = this.initData.description
                 this.concept = this.initData.concept
                 this.tag = this.initData.tag
+                this.rating = this.initData.rating
                 this.min_guest_quantity = this.initData.min_guest_quantity
                 this.max_guest_quantity = this.initData.max_guest_quantity
                 this.budget = this.initData.budget
                 this.time_open = this.initData.time_open
                 this.time_close = this.initData.time_close
                 this.phone = this.initData.phone
+                this.oldImage = this.initData.image_url
             }
         }
     }
