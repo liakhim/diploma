@@ -14,5 +14,5 @@ arrow_back_ios_new
 @endsection
 
 @section('content')
-    <article-create-form></article-create-form>
+    <article-create-form init-data="{{$article}}></article-create-form>
 @endsection

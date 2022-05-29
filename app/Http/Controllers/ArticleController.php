@@ -22,9 +22,18 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $article = new Article([
+            'user_id' => auth()->user()->getAuthIdentifier(),
+            'image_url' => $request->get('image_url'),
+            'title' => $request->get('title'),
+            'description' => $request->get('description'),
+            'body' => $request->get('body'),
+            'visibility' => 0,
+        ]);
+        $article->save();
+        return 'success';
     }
 
     /**

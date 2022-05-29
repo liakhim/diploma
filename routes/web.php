@@ -51,6 +51,7 @@ Route::get('/filters', function () {
         ],
         'type_filters' =>[
             ['key' => 'active','name' => 'Активный отдых'],
+            ['key' => 'passive','name' => 'Пассивный отдых'],
             ['key' => 'culture','name' => 'Культурный отдых'],
             ['key' => 'entertaining','name' => 'Развлечение']
         ]
@@ -109,6 +110,7 @@ Route::group(['middleware' => 'role:web-developer', 'prefix' => 'admin'], functi
         Route::get('/create', function() {
             return view('admin.articles.create');
         });
+        Route::post('/create', [ArticleController::class, 'create']);
     });
     Route::group(['prefix' => 'places'], function() {
         Route::get('/', function() {

@@ -57,7 +57,7 @@
                 }
                 axios.post('/comment/create', data)
                     .then((response) => {
-                        alert('complete')
+                        // alert('complete')
                     })
             }
         }
