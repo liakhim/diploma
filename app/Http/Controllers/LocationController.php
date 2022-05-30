@@ -14,11 +14,16 @@ class LocationController extends Controller
      */
     public function index(Request $request)
     {
+        $sort = $request->get('sort');
         $filter = $request->get('category');
         if (isset($filter)) {
-            $places = Location::where('group_id', $filter)->get();
+            $places = ($sort === 'desc')
+                ? Location::where('group_id', $filter)->orderByDesc('rating')->get()
+                : Location::where('group_id', $filter)->orderBy('rating')->get();
         } else {
-            $places = Location::all();
+            $places = ($sort === 'desc')
+                ? Location::all()->sortByDesc('rating')
+                : Location::all()->sortBy('rating');
         }
         return view('places', ['places' => $places, 'filter' => $filter]);
     }
@@ -70,6 +75,7 @@ class LocationController extends Controller
      */
     public function edit(Request $request)
     {
+        $location = Location::find($request->get('location_id'));
         if( $request->hasFile('file')) {
             // Имя и расширение файла
             $filenameWithExt = $request->file('file')->getClientOriginalName();
@@ -81,21 +87,21 @@ class LocationController extends Controller
             $fileNameToStore = "main_image/" . $filename . "_" . time() . "." . $extention;
             // Сохраняем файл
             $path = $request->file('file')->storeAs('public/locations', $fileNameToStore);
-            $location = Location::find($request->get('location_id'));
-            $location->name = $request->get('name');
-            $location->group_id = $request->get('group_id');
-            $location->address = $request->get('address');
-            $location->rating = $request->get('rating');
-            $location->description = $request->get('description');
-            $location->concept = $request->get('concept');
-            $location->tag = $request->get('tag');
-            $location->min_guest_quantity = $request->get('min_guest_quantity');
-            $location->max_guest_quantity = $request->get('max_guest_quantity');
-            $location->budget = $request->get('budget');
-            $location->time_open = $request->get('time_open');
-            $location->time_close = $request->get('time_close');
-            $location->phone = $request->get('phone');
             $location->image_url = $fileNameToStore;
+        }
+        $location->name = $request->get('name');
+        $location->group_id = $request->get('group_id');
+        $location->address = $request->get('address');
+        $location->rating = $request->get('rating');
+        $location->description = $request->get('description');
+        $location->concept = $request->get('concept');
+        $location->tag = $request->get('tag');
+        $location->min_guest_quantity = $request->get('min_guest_quantity');
+        $location->max_guest_quantity = $request->get('max_guest_quantity');
+        $location->budget = $request->get('budget');
+        $location->time_open = $request->get('time_open');
+        $location->time_close = $request->get('time_close');
+        $location->phone = $request->get('phone');
 //            $location = new Location([
 //                'name' => $request->get('name'),
 //                'group_id' => $request->get('group_id'),
@@ -111,8 +117,7 @@ class LocationController extends Controller
 //                'time_close' => $request->get('time_close'),
 //                'phone' => $request->get('phone'),
 //            ]);
-            $location->save();
-        }
+        $location->save();
         return 'success';
     }
 

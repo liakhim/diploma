@@ -14,11 +14,16 @@
 @section('content')
     <div class="container">
         <div>
+            <p>Группы мест</p>
+        </div>
+        <div>
             <table class="table">
                 <thead>
                 <tr>
+                    <th scope="col">-</th>
                     <th scope="col">id</th>
                     <th scope="col">Author</th>
+                    <th scope="col">Title</th>
                     <th scope="col">Description</th>
                     <th scope="col">Created</th>
                     <th scope="col">Действия</th>
@@ -27,8 +32,14 @@
                 <tbody>
                 @foreach ($articles as $article)
                     <tr @class(['table-success' => $article->visibility])>
+                        <th>
+                            <div style="width: 70px; height: 44px;overflow: hidden">
+                                <img style="width: 100%" src="/storage/articles/{{$article->image_url}}" alt="">
+                            </div>
+                        </th>
                         <th scope="row">{{$article->id}}</th>
                         <td>{{$article->author}}</td>
+                        <td>{{$article->title}}</td>
                         <td>{{$article->description}}</td>
                         <td>{{$article->created_at}}</td>
                         <td>

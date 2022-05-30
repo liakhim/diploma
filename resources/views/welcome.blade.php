@@ -48,9 +48,6 @@
         <div class="news-title">
             <h3>Последние новости</h3>
         </div>
-        <pre>
-            {{$articles}}
-        </pre>
         @foreach ($articles as $article)
             <div class="card article-card">
                 <div class="card-body article-card d-flex">

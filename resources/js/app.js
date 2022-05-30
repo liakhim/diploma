@@ -24,6 +24,7 @@ Vue.component('filters', require('./components/Filters.vue').default);
 Vue.component('location-create-form', require('./components/LocationCreateForm.vue').default);
 Vue.component('article-create-form', require('./components/ArticleCreateForm.vue').default);
 Vue.component('add-comment', require('./components/AddComment.vue').default);
+Vue.component('location-list', require('./components/LocationList.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

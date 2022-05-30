@@ -10,6 +10,7 @@
             <thead>
             <tr>
                 <th scope="col">Название места</th>
+                <th scope="col">Рейтинг</th>
                 <th scope="col">Бюджет</th>
                 <th scope="col">Компания</th>
                 <th scope="col">Часы работы</th>
@@ -22,6 +23,9 @@
                     <tr>
                         <td>
                             <span>{{$place->name}}</span>
+                        </td>
+                        <td>
+                            <span>{{$place->rating}}</span>
                         </td>
                         <td>
                             <span>{{$place->budget}}</span>
