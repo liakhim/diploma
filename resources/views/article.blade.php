@@ -4,7 +4,7 @@
     <div class="container">
         <div class="article-wrapper">
             <div class="article-wrapper-image">
-                <img src="../../assets/images/banners/2.jpeg" alt="">
+                <img src="/storage/articles/{{$article->image_url}}" alt="">
             </div>
             <div class="article-wrapper-title">
                 <h3>{{$article->title}}</h3>
