@@ -11595,8 +11595,12 @@ p {
 .places-wrapper .place-card-image img {
   width: 100%;
 }
+.places-wrapper .place-card .stars {
+  margin-top: 10px;
+  padding: 10px;
+}
 .places-wrapper .place-card-title {
-  padding: 20px 10px;
+  padding: 10px 10px;
 }
 .places-wrapper .place-card-title h4, .places-wrapper .place-card-title .h4 {
   margin-top: 0;

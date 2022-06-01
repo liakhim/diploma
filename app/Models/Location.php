@@ -40,10 +40,10 @@ class Location extends Model
             $min_guest = explode("_", $filter_company)[0];
             $max_guest = explode("_", $filter_company)[1];
             if ($max_guest !== 'many') {
-                $rules[] = ['min_guest_quantity', '>=', $min_guest];
-                $rules[] = ['max_guest_quantity', '<=', $max_guest];
+                // $rules[] = ['min_guest_quantity', '>=', $min_guest];
+                // $rules[] = ['max_guest_quantity', '<=', $max_guest];
             } else {
-                $rules[] = ['min_guest_quantity', '>=', $min_guest];
+                // $rules[] = ['min_guest_quantity', '>=', $min_guest];
             }
         }
         if ($filter_budget !== 'null') {
@@ -65,6 +65,18 @@ class Location extends Model
 //            ['budget', '>=', $min_budget],
 //            ['budget', '<=', $max_budget], ['tag', $mood], ['concept', $type]] : [['min_guest_quantity', '>=', $min_guest], ['budget', '>=', $min_budget],
 //            ['budget', '<=', $max_budget], ['tag', $mood], ['concept', $type]];
-        return Location::where($rules)->get();
+//        $max_guest = explode("_", $filter_company)[1];
+        if ($filter_company !== 'null') {
+            $min_guest = explode("_", $filter_company)[0];
+            $max_guest = explode("_", $filter_company)[1];
+            return Location::where($rules)
+                ->whereIn('min_guest_quantity', [$min_guest, $max_guest])
+                ->orWhereIn('max_guest_quantity', [$min_guest, ($max_guest !== 'many' ? $max_guest : 1000)])
+                ->get();
+        } else {
+            return Location::where($rules)->get();
+        }
+
+        // return Location::where($rules)->get();
     }
 }

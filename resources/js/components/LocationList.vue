@@ -9,7 +9,7 @@
         </div>
         <div class="places-wrapper pt-4 pb-4">
             <a v-for="place in local_places" :href="'places/' + place.id" class="place-card">
-                <div class="place-card-image">
+                <div class="place-card-image mt-2">
                     <img :src="'/storage/locations/' + place.image_url" alt="">
                 </div>
                 <div class="stars">

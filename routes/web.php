@@ -45,7 +45,7 @@ Route::get('/filters', function () {
             ['key' => 'relax','name' => 'Расслабленное'],
         ],
         'company_filters' =>[
-            ['key' => '0_1', 'name' => '1', 'min' => 1, 'max' => 1],
+            ['key' => '1_1', 'name' => '1', 'min' => 1, 'max' => 1],
             ['key' => '2_5', 'name' => '2 - 5', 'min' => 2, 'max' => 5],
             ['key' => '5_many', 'name' => 'больше 5', 'min' => 5, 'max' => null],
         ],

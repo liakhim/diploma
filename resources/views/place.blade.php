@@ -5,7 +5,7 @@
         <div class="place-wrapper">
             <div class="place-page">
                 <div class="place-page-title">
-                    <h2>Название места</h2>
+                    <h2>{{$place_info->name}}</h2>
                 </div>
                 <div class="place-page-content">
                     <div class="image">
